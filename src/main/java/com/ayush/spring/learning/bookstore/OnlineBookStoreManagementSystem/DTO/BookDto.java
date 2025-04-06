@@ -6,8 +6,10 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import java.io.Serializable;
+
 @Data
-public class BookDto {
+public class BookDto implements Serializable {
 
     @NotBlank(message = "Title should not be leave blank!")
     @Size(min = 5, max = 50)
