@@ -56,8 +56,7 @@ A full-fledged Spring Boot application that simulates an **Online Bookstore**, a
 | Backend Framework  | Spring Boot                        |
 | Security           | Spring Security + BCrypt           |
 | Database           | MySQL / H2 + Spring Data JPA       |
-| Documentation      | Swagger / OpenAPI                  |
-| Testing            | JUnit, Mockito, Spring Boot Test   |
+| Documentation      | Swagger / OpenAPI                  |   |
 | Logging            | Logback, SLF4J                     |
 | Build Tool         | Maven / Gradle                     |
 | Version Control    | Git + GitHub                       |
