@@ -1,0 +1,37 @@
+spring:
+  application:
+   name: OnlineBookStoreManagementSystem
+  datasource:
+    url: jdbc:mysql://localhost:3306/bookstore_db
+    username: springstudent
+    password: springstudent
+  redis:
+    host: localhost
+    port: 6379
+  cache:
+    type: redis
+
+  jpa:
+    hibernate:
+     ddl-auto: update
+    properties:
+      hibernate:
+       format_sql: false
+    show-sql: false
+
+logging:
+  level:
+    org:
+      springframework:
+        cache: DEBUG
+        data:
+          redis: DEBUG
+
+
+
+
+
+
+
+
+
