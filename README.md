@@ -42,10 +42,6 @@ A full-fledged Spring Boot application that simulates an **Online Bookstore**, a
 - Spring Data JPA with MySQL (or H2 for development)
 - Entity relationships: `User`, `Book`, `Order`
 
-### 🧪 Testing
-- Unit tests: JUnit + Mockito
-- Integration tests: Spring Boot Test
-
 ### 🛠️ Bonus Features
 - Email notifications on successful order (optional)
 - Discount system for large orders (optional)
