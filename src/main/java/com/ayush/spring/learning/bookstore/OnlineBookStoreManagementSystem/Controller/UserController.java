@@ -36,6 +36,7 @@ public class UserController {
     @PostMapping("/adminRegistration")
     public ResponseEntity<ResponseDto> addAdmin(@RequestBody @Valid UserDto userDto){
         userService.addUser(userDto,Role.ADMIN);
+        System.out.println("Ayush");
         return  ResponseEntity
                 .status(HttpStatus.OK)
                 .body(new ResponseDto(UserConstants.Status_202,UserConstants.Message_202));

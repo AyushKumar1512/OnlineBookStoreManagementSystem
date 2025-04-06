@@ -69,6 +69,7 @@ public class BookController {
     @GetMapping("/getAllBooks")
     public ResponseEntity<List<BookDto>> fetchAllBooks(){
         List<BookDto> books = bookService.fetchAllBooks();
+        System.out.println("Ayush");
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(books);
@@ -87,6 +88,7 @@ public class BookController {
     public ResponseEntity<List<BookDto>> fetchBooksByAuthor(@RequestParam @NotBlank(message = "Author should not be leave blank!")
                                                                 @Size(min = 5, max = 50) String bookAuthor){
         List<BookDto> bookDto = bookService.fetchBooksByAuthor(bookAuthor);
+        System.out.println("Ayush");
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(bookDto);
