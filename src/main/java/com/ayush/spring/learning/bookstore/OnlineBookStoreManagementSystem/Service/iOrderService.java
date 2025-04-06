@@ -13,6 +13,7 @@ import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Repos
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Repository.UserRepository;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Utils.CurrentUser;
 import com.sun.source.doctree.UnknownBlockTagTree;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -87,10 +88,13 @@ public class iOrderService implements OrderService{
         bookRepository.saveAll(orderItems.stream().map(OrderItem::getBook).collect(Collectors.toList()));
 
     }
-
     @Override
-    public List<OrderDto> fetchOrders() {
+    public List<OrderDto> fetchOrders(){
         String userEmail = CurrentUser.getCurrentUsername();
+        return fetchOrders(userEmail);
+    }
+    @Cacheable(value = "OrderHistory", key ="#userEmail")
+    public List<OrderDto> fetchOrders(String  userEmail) {
         User user = userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with email: " + userEmail));
         List<Order> listOfOrders;
@@ -108,3 +112,4 @@ public class iOrderService implements OrderService{
         return OrderMapper.Order_to_OrderDto(listOfOrders);
     }
 }
+

@@ -84,7 +84,6 @@ public class iBookService implements BookService{
     }
 
     @Override
-    @Cacheable(value = "booksByTitle", key = "#title")
     public BookDto fetchBooksByTitle(String title) {
         Optional<Book> book = bookRepository.findByTitle(title);
         if(book.isEmpty()){
