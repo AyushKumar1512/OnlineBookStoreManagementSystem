@@ -45,7 +45,6 @@ public class iBookService implements BookService{
     public boolean updateBook(BookDto bookDto) {
         boolean isUpdated;
         Optional<Book> book = bookRepository.findByTitle(bookDto.getTitle());
-        System.out.println("Ayush");
         if(book.isPresent()==false){
             throw new ResourceNotFoundException("Book doesn't exists by title "+bookDto.getTitle());
         }

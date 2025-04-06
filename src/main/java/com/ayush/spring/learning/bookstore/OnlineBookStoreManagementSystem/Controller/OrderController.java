@@ -39,7 +39,6 @@ public class OrderController {
     @GetMapping("/orderHistory")
     public ResponseEntity<List<OrderDto>> getAllOrders(){
         List<OrderDto> allOrders = orderService.fetchOrders();
-        System.out.println("Ayush");
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(allOrders);

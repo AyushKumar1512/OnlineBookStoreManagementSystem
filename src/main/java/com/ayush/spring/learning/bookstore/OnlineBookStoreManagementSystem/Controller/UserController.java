@@ -27,7 +27,6 @@ public class UserController {
     @PostMapping("/customerRegistration")
     public ResponseEntity<ResponseDto> addCustomer(@RequestBody @Valid UserDto userDto){
         userService.addUser(userDto,Role.CUSTOMER);
-        System.out.println("Ayush");
         return  ResponseEntity
                 .status(HttpStatus.OK)
                 .body(new ResponseDto(UserConstants.Status_201,UserConstants.Message_201));
@@ -36,7 +35,6 @@ public class UserController {
     @PostMapping("/adminRegistration")
     public ResponseEntity<ResponseDto> addAdmin(@RequestBody @Valid UserDto userDto){
         userService.addUser(userDto,Role.ADMIN);
-        System.out.println("Ayush");
         return  ResponseEntity
                 .status(HttpStatus.OK)
                 .body(new ResponseDto(UserConstants.Status_202,UserConstants.Message_202));
