@@ -27,6 +27,7 @@ public class UserController {
     @PostMapping("/customerRegistration")
     public ResponseEntity<ResponseDto> addCustomer(@RequestBody @Valid UserDto userDto){
         userService.addUser(userDto,Role.CUSTOMER);
+        System.out.println("Ayush");
         return  ResponseEntity
                 .status(HttpStatus.OK)
                 .body(new ResponseDto(UserConstants.Status_201,UserConstants.Message_201));
