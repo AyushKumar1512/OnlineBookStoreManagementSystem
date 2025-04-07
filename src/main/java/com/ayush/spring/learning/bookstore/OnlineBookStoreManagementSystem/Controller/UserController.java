@@ -7,6 +7,7 @@ import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.DTO.U
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Entity.Role;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Service.UserService;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,13 +17,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(path = "/api/user", produces = {MediaType.APPLICATION_JSON_VALUE})
 @Validated
+@AllArgsConstructor
 public class UserController {
 
     private final UserService userService;
-
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
 
     @PostMapping("/customerRegistration")
     public ResponseEntity<ResponseDto> addCustomer(@RequestBody @Valid UserDto userDto){

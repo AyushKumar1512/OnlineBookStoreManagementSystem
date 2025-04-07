@@ -6,19 +6,17 @@ import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Entit
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Entity.User;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Event.LowStockEvent;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Repository.UserRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class iStockValidationSevice {
 
     private final UserRepository userRepository;
-
-    public iStockValidationSevice(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @EventListener
     public void stockValidation(LowStockEvent lowStockEvent){

@@ -13,6 +13,7 @@ import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Repos
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Repository.UserRepository;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Utils.CurrentUser;
 import com.sun.source.doctree.UnknownBlockTagTree;
+import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
@@ -26,19 +27,13 @@ import java.util.stream.Collectors;
 
 
 @Service
+@AllArgsConstructor
 public class iOrderService implements OrderService{
 
     private final OrderRepository orderRepository;
     private final BookRepository bookRepository;
     private final UserRepository userRepository;
     private final ApplicationEventPublisher publisher;
-
-    public iOrderService(OrderRepository orderRepository, BookRepository bookRepository, UserRepository userRepository, ApplicationEventPublisher publisher) {
-        this.orderRepository = orderRepository;
-        this.bookRepository = bookRepository;
-        this.userRepository = userRepository;
-        this.publisher = publisher;
-    }
 
     @Override
     @Transactional

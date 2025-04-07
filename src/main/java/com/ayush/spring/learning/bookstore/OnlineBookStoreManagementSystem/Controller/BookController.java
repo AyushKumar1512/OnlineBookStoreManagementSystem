@@ -7,6 +7,7 @@ import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Servi
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +19,10 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/api/book", produces = {MediaType.APPLICATION_JSON_VALUE})
 @Validated
+@AllArgsConstructor
 public class BookController {
 
     private final BookService bookService;
-
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
-    }
 
     @PostMapping("/admin/addBook")
     public ResponseEntity<ResponseDto> createBook(@Valid @RequestBody BookDto bookDto){

@@ -8,6 +8,7 @@ import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.DTO.R
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Service.OrderService;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Utils.CurrentUser;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,14 +20,11 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/api/order", produces = {MediaType.APPLICATION_JSON_VALUE})
 @Validated
+@AllArgsConstructor
 public class OrderController {
 
 
     private final OrderService orderService;
-
-    public OrderController(OrderService orderService) {
-        this.orderService = orderService;
-    }
 
     @PostMapping("/placeOrder")
     public ResponseEntity<ResponseDto> createOrder(@RequestBody @Valid List<OrderItemDto> orderList){

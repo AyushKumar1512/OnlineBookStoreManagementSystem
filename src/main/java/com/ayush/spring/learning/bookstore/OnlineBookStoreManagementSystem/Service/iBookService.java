@@ -6,6 +6,7 @@ import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Excep
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Exception.ResourceNotFoundException;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Mapper.BookMapper;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Repository.BookRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -17,13 +18,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class iBookService implements BookService{
 
     private final BookRepository bookRepository;
 
-    public iBookService(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
-    }
 
     @Override
     @Transactional

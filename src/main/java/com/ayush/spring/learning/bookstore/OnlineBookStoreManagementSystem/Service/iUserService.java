@@ -6,6 +6,7 @@ import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Entit
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Exception.AlreadyExistException;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Mapper.UserMapper;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Repository.UserRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,18 +16,13 @@ import java.util.Optional;
 
 
 @Service
+@AllArgsConstructor
 public class iUserService implements UserService{
 
     private final UserRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-
-    public iUserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
-
 
 
     @Override
