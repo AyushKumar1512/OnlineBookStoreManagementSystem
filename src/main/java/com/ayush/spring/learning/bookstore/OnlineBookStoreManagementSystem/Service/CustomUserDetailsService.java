@@ -2,6 +2,7 @@ package com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Serv
 
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Entity.User;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Repository.UserRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,13 +12,10 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 
 @Service
+@AllArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
-
-    public CustomUserDetailsService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
