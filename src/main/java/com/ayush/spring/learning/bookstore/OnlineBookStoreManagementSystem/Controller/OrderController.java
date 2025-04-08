@@ -5,6 +5,7 @@ import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Const
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.DTO.OrderDto;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.DTO.OrderItemDto;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.DTO.ResponseDto;
+import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.OpenAPIDocs.OrderApiDocumentation;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Service.OrderService;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Utils.CurrentUser;
 import jakarta.validation.Valid;
@@ -21,7 +22,7 @@ import java.util.List;
 @RequestMapping(path = "/api/order", produces = {MediaType.APPLICATION_JSON_VALUE})
 @Validated
 @AllArgsConstructor
-public class OrderController {
+public class OrderController implements OrderApiDocumentation {
 
 
     private final OrderService orderService;

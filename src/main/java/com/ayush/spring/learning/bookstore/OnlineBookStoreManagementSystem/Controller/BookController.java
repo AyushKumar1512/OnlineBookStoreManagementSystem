@@ -3,6 +3,7 @@ package com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Cont
 
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Constants.BookConstants;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.DTO.*;
+import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.OpenAPIDocs.BookApiDocumentation;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Service.BookService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -20,7 +21,7 @@ import java.util.List;
 @RequestMapping(path = "/api/book", produces = {MediaType.APPLICATION_JSON_VALUE})
 @Validated
 @AllArgsConstructor
-public class BookController {
+public class BookController implements BookApiDocumentation {
 
     private final BookService bookService;
 
