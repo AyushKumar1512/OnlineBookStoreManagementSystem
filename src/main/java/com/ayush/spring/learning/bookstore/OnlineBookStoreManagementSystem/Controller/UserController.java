@@ -5,6 +5,7 @@ import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Const
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.DTO.ResponseDto;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.DTO.UserDto;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Entity.Role;
+import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.OpenAPIDocs.UserApiDocumentation;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.Service.UserService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "/api/user", produces = {MediaType.APPLICATION_JSON_VALUE})
 @Validated
 @AllArgsConstructor
-public class UserController {
+public class UserController implements UserApiDocumentation {
 
     private final UserService userService;
 
