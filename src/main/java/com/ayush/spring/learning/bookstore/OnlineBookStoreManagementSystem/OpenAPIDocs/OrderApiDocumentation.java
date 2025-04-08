@@ -1,10 +1,13 @@
 package com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.OpenAPIDocs;
 
 
+import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.DTO.ErrorResponseDto;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.DTO.OrderDto;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.DTO.OrderItemDto;
 import com.ayush.spring.learning.bookstore.OnlineBookStoreManagementSystem.DTO.ResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -25,5 +28,8 @@ public interface OrderApiDocumentation {
 
     @Operation(summary = "Get order History ", description = "Customer fetch order history")
     @ApiResponse(responseCode = "200", description = "Http Status Ok")
+    @ApiResponse(responseCode = "500",description = "Internal Server Error",content = @Content(
+            schema = @Schema(implementation = ErrorResponseDto.class)
+    ))
     ResponseEntity<List<OrderDto>> getAllOrders();
 }

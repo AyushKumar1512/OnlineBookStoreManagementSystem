@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 )
 public interface UserApiDocumentation {
 
-    @Operation(summary = "Add user ", description = "Add new Customer")
+    @Operation(summary = "Add Customer ", description = "Add new Customer")
     @ApiResponse(responseCode = "201", description = "Successful operation")
     ResponseEntity<ResponseDto> addCustomer(@RequestBody @Valid UserDto userDto);
 
-    @Operation(summary = "Add user ", description = "Add new Admin")
+    @Operation(summary = "Add Admin ", description = "Add new Admin")
     @ApiResponse(responseCode = "201", description = "Successful operation")
     ResponseEntity<ResponseDto> addAdmin(@RequestBody @Valid UserDto userDto);
 }
